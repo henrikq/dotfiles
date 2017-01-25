@@ -1,3 +1,6 @@
 [submodule "git-fixup"]
 	path = git-fixup
 	url = https://github.com/keis/git-fixup.git
+[submodule "git-squash"]
+	path = git-squash
+	url = git@github.com:jnothman/git-squash.git
