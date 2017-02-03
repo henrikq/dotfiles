@@ -16,15 +16,17 @@ CLB="\[\e[1;34m\]" # color light blue
 CS="\[\e[m\]" # color stop
 export PS1="$CLB\w$CS \$ "
 
+# PATH
 export PATH="~/bin:$PATH"
 export PATH="/usr/lib/ccache:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
 
+# misc
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export PYTHONSTARTUP=~/.pythonrc
 
-if [ -f $HOME/.npm-global ]; then
-    export PATH="$HOME/.npm-global/bin:$PATH"
-fi
 ##############################################################################
 # 02. Aliases                                                                #
 ##############################################################################
@@ -40,18 +42,21 @@ alias am='alsamixer'
 alias pc='pavucontrol' # pulseaudio controll
 alias mm='arandr' # monitor manager
 alias nosleep='caffeinate time cat'
-alias python='python3'
 yr () { curl "wttr.in/$@"; }
 
 # git
 alias gs="git status"
 alias gb="git branch"
 alias gl="git log --decorate --oneline --left-right -n 20"
+alias gd="git diff"
+alias gds="git diff --stat"
+alias gdc="git diff --word-diff=color"
 alias gg='git grep -n'
 alias ggg="git grep -C2 -n --heading --show-function"
 
 # misc
 alias rmorig='for file in $(find . -name "*.orig"); do rm $file; done;'
+alias date-iso='date --iso-8601'
 alias open='xdg-open $@ &> /dev/null'
 alias simple='python2 -m SimpleHTTPServer 3000'
 alias octave='octave-cli'
