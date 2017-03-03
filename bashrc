@@ -17,9 +17,9 @@ CS="\[\e[m\]" # color stop
 export PS1="$CLB\w$CS \$ "
 
 # PATH
-export PATH="~/bin:$PATH"
 export PATH="/usr/lib/ccache:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin/:$PATH"
 
 # misc
@@ -60,6 +60,8 @@ alias date-iso='date --iso-8601'
 alias open='xdg-open $@ &> /dev/null'
 alias simple='python2 -m SimpleHTTPServer 3000'
 alias octave='octave-cli'
+alias ports-who='netstat -tulpn'
+alias path='echo "$PATH" | sed "s/:/:\n/g"'
 
 alias config-java='sudo update-alternatives --config java'
 alias config-javac='sudo update-alternatives --config javac'
