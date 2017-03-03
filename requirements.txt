@@ -1,0 +1,9 @@
+cheat # cheat-sheet cli application
+csvkit # cli toolset, csvlook, csvstat, csvcut, etc...
+flake8 # python linter
+ipython
+jupyter
+matplotlib
+pip-save
+piprot
+seaborn # plotting lib
