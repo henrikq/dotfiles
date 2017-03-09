@@ -26,6 +26,7 @@ export PATH="$HOME/.local/bin/:$PATH"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export PYTHONSTARTUP=~/.pythonrc
+export DEFAULT_CHEAT_DIR='~/dotfiles/cheats'
 
 ##############################################################################
 # 02. Aliases                                                                #
