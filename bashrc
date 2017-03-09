@@ -63,6 +63,8 @@ alias simple='python2 -m SimpleHTTPServer 3000'
 alias octave='octave-cli'
 alias ports-who='netstat -tulpn'
 alias path='echo "$PATH" | sed "s/:/:\n/g"'
+alias kantega-vpn='/opt/cisco/anyconnect/bin/vpnui'
+alias compose-grep='cat /usr/share/X11/locale/en_US.UTF-8/Compose | grep -i'
 
 alias config-java='sudo update-alternatives --config java'
 alias config-javac='sudo update-alternatives --config javac'
