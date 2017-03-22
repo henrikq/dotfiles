@@ -66,6 +66,9 @@ alias path='echo "$PATH" | sed "s/:/:\n/g"'
 alias kantega-vpn='/opt/cisco/anyconnect/bin/vpnui'
 alias compose-grep='cat /usr/share/X11/locale/en_US.UTF-8/Compose | grep -i'
 
+alias disable-touchpad='xinput set-prop 10 "Device Enabled" 0'
+alias enable-touchpad='xinput set-prop 10 "Device Enabled" 1'
+
 alias config-java='sudo update-alternatives --config java'
 alias config-javac='sudo update-alternatives --config javac'
 
