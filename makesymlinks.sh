@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 backupdir=$dir/dotfiles_backup             # old dotfiles backup directory
-files="bashrc vimrc vim opera profile pythonrc"    # list of files/folders to symlink in homedir
+files="bashrc vimrc vim profile pythonrc"    # list of files/folders to symlink in homedir
 
 ##########
 
