@@ -1,0 +1,7 @@
+**/.thumbnails
+**/.cache
+**/.local/share/Trash
+**/node_modules/
+**/Tresors
+**/.rnd
+**/cifs-cred
