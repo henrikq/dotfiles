@@ -1,0 +1,2 @@
+# cli
+docker run -it microsoft/azure-cli

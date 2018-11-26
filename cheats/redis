@@ -1,0 +1,11 @@
+# start/status/stop
+sudo systemctl start redis
+sudo systemctl status redis
+sudo systemctl stop redis
+
+redis-cli -h localhost ping
+
+# install
+https://dba.stackexchange.com/questions/176002/psql-fatal-database-does-not-exist-error
+
+

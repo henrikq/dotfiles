@@ -1,0 +1,13 @@
+# login via root
+psql
+
+# login via user
+sudo -u postgres psql
+
+# login via password
+psql -U user <database>
+
+
+
+# psql command examples
+

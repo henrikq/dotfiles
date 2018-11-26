@@ -1,0 +1,3 @@
+sshuttle -r henrikq@gf-jump.vipps.io 0.0.0.0/0 -x 172.0.0.0/8 -x 127.0.0.0/8 -x 192.168.0.0/16
+
+CORE_API_URL=https://10.78.9.70/at3
