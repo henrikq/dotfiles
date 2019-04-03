@@ -1,2 +1,5 @@
 # cli
 docker run -it microsoft/azure-cli
+
+az interactive
+az>> ad user get-member-groups --upn-or-object-id henrik.qvigstad@vipps.no

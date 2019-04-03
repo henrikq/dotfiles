@@ -1,2 +1,5 @@
 # remove database
 docker-compose rm -v db
+
+# deamon mode
+docker-compose up -d

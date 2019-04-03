@@ -16,17 +16,27 @@ CLB="\[\e[1;34m\]" # color light blue
 CS="\[\e[m\]" # color stop
 export PS1="$CLB\w$CS \$ "
 
-# PATH
-export PATH="/usr/lib/ccache:$PATH"
-export PATH="$HOME/.npm-global/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.local/bin/:$PATH"
-
 # misc
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export PYTHONSTARTUP=~/.pythonrc
 export DEFAULT_CHEAT_DIR='~/dotfiles/cheats'
+#export GOPATH="/home/henqvi/projects/go"
+export GO111MODULE=on
+
+# PATH
+# export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="/usr/local/opt/go/libexec/bin:$GOPATH/bin:$PATH"
+export PATH="/usr/lib/ccache:$PATH"
+#export PATH="$HOME/apps/go1.11.2/bin:$PATH"
+
+# python viertualenvs
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
 
 ##############################################################################
 # 02. Aliases                                                                #
@@ -78,3 +88,7 @@ alias config-javac='sudo update-alternatives --config javac'
 if [ -f $HOME/.bashrc_local ]; then
     source $HOME/.bashrc_local
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
