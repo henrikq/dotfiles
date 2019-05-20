@@ -20,23 +20,43 @@ export PS1="$CLB\w$CS \$ "
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export PYTHONSTARTUP=~/.pythonrc
-export DEFAULT_CHEAT_DIR='~/dotfiles/cheats'
+#export DEFAULT_CHEAT_DIR='~/dotfiles/cheats'
+export CHEAT_USER_DIR="$HOME/dotfiles/cheats"
 #export GOPATH="/home/henqvi/projects/go"
 export GO111MODULE=on
 
 # PATH
-# export PATH="$HOME/.npm-global/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.local/bin/:$PATH"
-export PATH="/usr/local/go/bin:$PATH"
-export PATH="/usr/local/opt/go/libexec/bin:$GOPATH/bin:$PATH"
-export PATH="/usr/lib/ccache:$PATH"
+if [ -d "$HOME/bin" ]; then export PATH="$HOME/bin:$PATH"; fi
+if [ -d "$HOME/.npm/bin" ]; then export PATH="$HOME/.npm/bin:$PATH"; fi
+if [ -d "$HOME/.local/bin" ]; then export PATH="$HOME/.local/bin:$PATH"; fi
+#export PATH="/usr/local/go/bin:$PATH"
+#export PATH="/usr/local/opt/go/libexec/bin:$GOPATH/bin:$PATH"
+#export PATH="/usr/lib/ccache:$PATH"
 #export PATH="$HOME/apps/go1.11.2/bin:$PATH"
+if [ -d "/usr/local/go/bin" ]; then export PATH="/usr/local/go/bin:$PATH"; fi
 
 # python viertualenvs
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
+if [ -s $HOME/.local/bin/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/projects
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    source $HOME/.local/bin/virtualenvwrapper.sh
+fi
+
+# setup sassc for vippsweb
+if [ -s "$HOME/apps/sassc-3.4.7/bin/sassc" ]; then
+    export SASS_LIBSASS_PATH="$HOME/apps/libsass-3.4.5"
+    export SASS_SPEC_SASS="$HOME/apps/sass-spec-3.5.4"
+    export PATH="$HOME/apps/sassc-3.4.7/bin:$PATH"
+    export PATH="$HOME/apps/sass2scss-1.1.0/:$PATH"
+fi
+
+# nvm (node version manager)
+if [ -d "$HOME/.nvm" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    \. "$NVM_DIR/nvm.sh"  # This loads nvm 
+    \. "$NVM_DIR/bash_completion"
+fi
 
 ##############################################################################
 # 02. Aliases                                                                #
@@ -89,6 +109,4 @@ if [ -f $HOME/.bashrc_local ]; then
     source $HOME/.bashrc_local
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
