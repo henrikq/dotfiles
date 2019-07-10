@@ -22,7 +22,13 @@ export EDITOR="$VISUAL"
 export PYTHONSTARTUP=~/.pythonrc
 #export DEFAULT_CHEAT_DIR='~/dotfiles/cheats'
 export CHEAT_USER_DIR="$HOME/dotfiles/cheats"
-#export GOPATH="/home/henqvi/projects/go"
+
+if [ -d /usr/local/go ]; then export GOROOT=/usr/local/go; fi
+if [ -d "$HOME/projects/go" ]; then
+    export GOROOT=/usr/local/go
+    export GOPATH="$HOME/projects/go";
+    if [ -d "$HOME/projects/go/bin" ]; then export PATH="$HOME/projects/go/bin:$PATH"; fi
+fi
 export GO111MODULE=on
 
 # PATH
