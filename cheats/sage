@@ -1,0 +1,9 @@
+# install /run
+mix deps.get
+mix ecto.setup
+mix test
+mix phx.server
+
+# migrate
+mix ecto.gen.migration MIGRATION_NAME
+mix ecto.migrate

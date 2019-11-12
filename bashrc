@@ -33,6 +33,7 @@ export GO111MODULE=on
 
 # PATH
 if [ -d "$HOME/bin" ]; then export PATH="$HOME/bin:$PATH"; fi
+if [ -d "$HOME/dotfiles/commands" ]; then export PATH="$HOME/dotfiles/commands:$PATH"; fi
 if [ -d "$HOME/.npm/bin" ]; then export PATH="$HOME/.npm/bin:$PATH"; fi
 if [ -d "$HOME/.local/bin" ]; then export PATH="$HOME/.local/bin:$PATH"; fi
 #export PATH="/usr/local/go/bin:$PATH"
@@ -47,6 +48,9 @@ if [ -s $HOME/.local/bin/virtualenvwrapper.sh ]; then
     export PROJECT_HOME=$HOME/projects
     export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
     source $HOME/.local/bin/virtualenvwrapper.sh
+fi
+if [ -s /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
+  source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 fi
 
 # setup sassc for vippsweb
@@ -107,6 +111,17 @@ alias enable-touchpad='xinput set-prop 10 "Device Enabled" 1'
 
 alias config-java='sudo update-alternatives --config java'
 alias config-javac='sudo update-alternatives --config javac'
+
+# spelling errors
+alias cod=code
+alias chat=cheat
+
+# docker
+alias d=docker
+alias dc=docker-compose
+alias dcu='docker-compose up'
+alias dcub='docker-compose up --build'
+alias dcp='docker-compose ps'
 
 ##############################################################################
 # 03. Local stuff

@@ -1,0 +1,28 @@
+# get data
+npm run sync_local
+npm run save_to_mongo
+dc run web python manage.py reindex_bot --bot ID
+./scripts/sync_messages_local.sh BOT_ID
+
+# interactive
+npm run bash
+dc run web python manage.py shell_plus
+
+## then can do stuff like
+from chats.collections import Chat
+Chat.objects.count()
+
+# local 
+pipenv install --dev
+pipenv shell
+./scripts/sync_env.py --compose-file=docker-compose-light.yml
+python manage.py reindex_bot --bot ID
+python manage.py runserver
+
+# graphql
+http://localhost:8000/debug/login/?user_id=
+http://localhost:8000/api/v2/graphiql
+
+# heroku
+heroku run python manage.py shell_plus -a kindly-staging
+

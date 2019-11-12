@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if tmux has-session -t kindly; then 
+  tmux attach-session -t kindly
+  exit
+fi
+
+tmux new-session -d -s kindly -c ~/proj/kindly 'docker-compose up redis db mongo rabbitmq elasticsearch; bash -i'
+tmux split-window -v -p 85 -c ~/proj/pat 'npm run start'
+tmux split-window -v -p 70 -c ~/proj/kindly 'pipenv shell python manage.py runserver; bash -i'
+tmux split-window -v -p 50 -c ~/proj/kindly 'pipenv shell celery worker -n worker -A kindly -l info --without-gossip --without-mingle --without-heartbeat; bash -i'
+
+tmux split-window -t 0 -p 50 -h -c ~/proj/kindly 'watch docker-compose ps; bash -i'
+tmux split-window -t 2 -p 30 -h -c ~/proj/kindly 'npm run start; bash -i'
+tmux split-window -t 4 -p 30 -h -c ~/proj/kindly 'pipenv shell python manage.py watch_mongo_tickets; bash -i'
+tmux split-window -t 6 -p 30 -h -c ~/proj/kindly 'pipenv shell celery worker -n worker_low -A kindly -l info --without-gossip --without-mingle --without-heartbeat --concurrency=1 -Q low_pri,nlp; bash -i'
+
+tmux attach-session -t kindly

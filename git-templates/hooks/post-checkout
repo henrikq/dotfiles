@@ -1,0 +1,18 @@
+#!/bin/sh
+
+CHANGED=`git diff $1 $2 --stat -- package-lock.json package.json | wc -l`
+if [ $CHANGED -gt 0 ];
+then
+    echo
+    echo "\033[0;31m  package-lock.json or package.json has changed! \033[0m"
+    echo " you probably want to run: npm ci"
+fi
+
+CHANGED=`git diff $1 $2 --stat -- Pipfile Pipfile.lock | wc -l`
+if [ $CHANGED -gt 0 ];
+then
+    echo
+    echo "\033[0;31m  Pipfile or Pipfile.lock has changed! \033[0m"
+    echo "  you probably want to run: pipenv install --dev"
+fi
+
