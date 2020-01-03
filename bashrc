@@ -87,7 +87,8 @@ yr () { curl "wttr.in/$@"; }
 
 # git
 alias gs="git status"
-alias gb="git branch"
+
+alias gb="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
 alias gl="git log --decorate --oneline --left-right -n 20"
 alias gd="git diff"
 alias gds="git diff --stat"
@@ -123,8 +124,15 @@ alias dcu='docker-compose up'
 alias dcub='docker-compose up --build'
 alias dcp='docker-compose ps'
 
+
 ##############################################################################
-# 03. Local stuff
+# 03. Functions
+##############################################################################
+
+
+
+##############################################################################
+# 04. Local stuff
 ##############################################################################
 if [ -f $HOME/.bashrc_local ]; then
     source $HOME/.bashrc_local
