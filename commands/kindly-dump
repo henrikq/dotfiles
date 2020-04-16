@@ -1,0 +1,5 @@
+#!/bin/bash
+
+filename=${1:-kindly}.dump
+echo "pg_dump -Fc -h localhost -U postgres kindly > $filename"
+pg_dump -Fc -h localhost -U postgres kindly > $filename

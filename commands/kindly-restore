@@ -1,0 +1,5 @@
+#!/bin/bash
+
+filename=${1:-kindly}.dump
+echo "pg_restore -h localhost -U postgres -d kindly $filename"
+pg_restore -h localhost -U postgres -d kindly $filename
