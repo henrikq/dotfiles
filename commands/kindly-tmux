@@ -5,8 +5,16 @@ if tmux has-session -t kindly; then
   exit
 fi
 
+if lsof -ti tcp:3000; then
+  lsof -ti tcp:.3000 | xargs kill
+fi
+
+if lsof -ti tcp:3000; then
+  lsof -ti tcp:8000 | xargs kill
+fi
+
 tmux new-session -d -s kindly -c ~/proj/kindly 'docker-compose up redis db mongo rabbitmq elasticsearch; bash -i'
-tmux split-window -v -p 85 -c ~/proj/pat 'npm run start'
+tmux split-window -v -p 85 -c ~/proj/pat 'npm run start; bash -i'
 tmux split-window -v -p 70 -c ~/proj/kindly 'pipenv shell python manage.py runserver; bash -i'
 tmux split-window -v -p 50 -c ~/proj/kindly 'pipenv shell celery worker -n worker -A kindly -l info --without-gossip --without-mingle --without-heartbeat; bash -i'
 
